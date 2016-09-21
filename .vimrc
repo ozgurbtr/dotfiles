@@ -22,7 +22,7 @@ Plugin 'vim-airline/vim-airline-themes'
 
 let g:airline_powerline_fonts = 1
 let g:airline_base16 = 1
-
+let g:airline#extensions#tabline#enabled = 1
 " colorschemes
 Plugin 'chriskempson/base16-vim'
 
