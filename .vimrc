@@ -19,6 +19,8 @@ Plugin 'tpope/vim-fugitive' " the ultimate git helper
 Plugin 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual mode
 Plugin 'vim-airline/vim-airline' " status bar
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'w0rp/ale'
+Plugin 'skywind3000/asyncrun.vim'
 
 let g:airline_powerline_fonts = 1
 let g:airline_base16 = 1
@@ -28,7 +30,8 @@ Plugin 'chriskempson/base16-vim'
 
 " JavaScript plugins
 Plugin 'pangloss/vim-javascript'
-Plugin 'jelera/vim-javascript-syntax'
+"Plugin 'jelera/vim-javascript-syntax'
+Plugin 'mxw/vim-jsx'
 
 call vundle#end()
 filetype plugin indent on
@@ -161,3 +164,10 @@ let g:ctrlp_custom_ignore = {
 
 " search the nearest ancestor that contains .git, .hg, .svn
 let g:ctrlp_working_path_mode = 2
+
+" Pretty
+autocmd BufWritePost *.js AsyncRun -post=checktime npx eslint --fix %
+autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
+"autocmd FileType javascript setlocal equalprg="npx eslint-pretty" ts=4 sts=4 sw=4 expandtab
+
+
